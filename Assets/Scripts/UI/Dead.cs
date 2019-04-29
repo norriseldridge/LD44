@@ -15,6 +15,6 @@ public class Dead : MonoBehaviour {
 	
 	private void OnClickBack()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Init");
     }
 }

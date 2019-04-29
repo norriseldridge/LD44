@@ -34,7 +34,7 @@ public class MapLogic : MonoBehaviour {
     {
         while (true)
         {
-            _warningText.color = Color.white;
+            _warningText.color = Color.yellow;
             yield return new WaitForSeconds(0.2f);
 
             _warningText.color = Color.clear;

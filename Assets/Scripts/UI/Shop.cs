@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour {
     [SerializeField]
+    private GameObject _itemList;
+    [SerializeField]
     private GameObject _dialogueBox;
     [SerializeField]
     private Text _dialogueText;
@@ -40,7 +42,9 @@ public class Shop : MonoBehaviour {
 		if (!PlayerModel.HasVisitedShop)
         {
             PlayerModel.HasVisitedShop = true;
+            RemoveItemBox();
             StartCoroutine(FirstTimeDialogue());
+            return;
         }
         else
         {
@@ -119,7 +123,13 @@ public class Shop : MonoBehaviour {
     {
         Destroy(_dialogueBox);
     }
-	
+
+    private void RemoveItemBox()
+    {
+        Destroy(_close.gameObject);
+        Destroy(_itemList);
+    }
+
     // close
     private void OnClickClose()
     {
@@ -212,6 +222,7 @@ public class Shop : MonoBehaviour {
 
     private void Update()
     {
-        _bpText.text = "BP: " + PlayerModel.GetHealth();
+        if (_bpText != null)
+            _bpText.text = "BP: " + PlayerModel.GetHealth();
     }
 }

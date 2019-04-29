@@ -97,6 +97,12 @@ public class PlayerModel
         return UnityEngine.PlayerPrefs.GetInt(key);
     }
 
+    public static void ReduceAmmo(string key)
+    {
+        int cur = UnityEngine.PlayerPrefs.GetInt(key);
+        UnityEngine.PlayerPrefs.SetInt(key, cur - 1);
+    }
+
     public static void AddAmmo(string key, int ammount)
     {
         int cur = GetAmmo(key);

@@ -66,6 +66,9 @@ public class GunWeapon : Weapon {
         // Do the base level "Use"
         base.Use();
 
+        // decrease ammo
+        PlayerModel.ReduceAmmo(_ammoKey);
+
         // Wait
         yield return new WaitForSeconds(_shotDelay);
 
